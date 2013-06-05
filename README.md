@@ -36,7 +36,7 @@ if Rails.env.production?
   # This will invoke API
   STRIKEIRON_TAX_CATEGORIES = Strikeiron.tax_categories.freeze
 else
-  STRIKEIRON_TAX_CATEGORIES = { :category => "Sample Tax Category, :category_id => "1" }          
+  STRIKEIRON_TAX_CATEGORIES = { :category => "Sample Tax Category", :category_id => "1" }          
 end 
 
 STRIKEIRON_TAX_CATEGORIES_FOR_SELECT = STRIKEIRON_TAX_CATEGORIES.map do |cat|

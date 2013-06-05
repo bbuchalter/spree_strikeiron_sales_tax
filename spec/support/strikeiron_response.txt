@@ -1,0 +1,95 @@
+--- !ruby/object:Strikeiron::TaxResult
+from: !ruby/object:Strikeiron::Address
+  street_address: !ruby/string:Nori::StringWithAttributes
+    str: 920 BROADWAY
+    attributes: {}
+  city: !ruby/string:Nori::StringWithAttributes
+    str: NEW YORK
+    attributes: {}
+  state: !ruby/string:Nori::StringWithAttributes
+    str: NY
+    attributes: {}
+  zip_code: !ruby/string:Nori::StringWithAttributes
+    str: 10010-8005
+    attributes: {}
+to: !ruby/object:Strikeiron::Address
+  street_address: !ruby/string:Nori::StringWithAttributes
+    str: 73 WORTH ST APT 4D
+    attributes: {}
+  city: !ruby/string:Nori::StringWithAttributes
+    str: NEW YORK
+    attributes: {}
+  state: !ruby/string:Nori::StringWithAttributes
+    str: NY
+    attributes: {}
+  zip_code: !ruby/string:Nori::StringWithAttributes
+    str: 10013-3484
+    attributes: {}
+tax_values:
+- !ruby/object:Strikeiron::TaxValue
+  category_id: !ruby/string:Nori::StringWithAttributes
+    str: '01100500'
+    attributes: {}
+  category: !ruby/string:Nori::StringWithAttributes
+    str: Clothing
+    attributes: {}
+  tax_amount: 21.3
+  jurisdictions:
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: '061'
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: NEW YORK
+      attributes: {}
+    tax_amount: 10.8
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: '36'
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: New York
+      attributes: {}
+    tax_amount: 9.6
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: CTD51000
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: METRO COMMUTER TRANS. DISTRICT
+      attributes: {}
+    tax_amount: 0.9
+- !ruby/object:Strikeiron::TaxValue
+  category_id: !ruby/string:Nori::StringWithAttributes
+    str: '01100500'
+    attributes: {}
+  category: !ruby/string:Nori::StringWithAttributes
+    str: Clothing
+    attributes: {}
+  tax_amount: 15.44
+  jurisdictions:
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: '061'
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: NEW YORK
+      attributes: {}
+    tax_amount: 7.83
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: '36'
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: New York
+      attributes: {}
+    tax_amount: 6.96
+  - !ruby/object:Strikeiron::Jurisdiction
+    fips: !ruby/string:Nori::StringWithAttributes
+      str: CTD51000
+      attributes: {}
+    name: !ruby/string:Nori::StringWithAttributes
+      str: METRO COMMUTER TRANS. DISTRICT
+      attributes: {}
+    tax_amount: 0.65
+total_tax: 36.74

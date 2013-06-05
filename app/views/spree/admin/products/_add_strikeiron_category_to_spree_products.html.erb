@@ -1,0 +1,5 @@
+<%= f.field_container :strikeiron_category_id do %>
+  <%= f.label :strikeiron_category_id, t("strikeiron_category_id") %>
+  <br/>
+  <%= f.select :strikeiron_category_id, STRIKEIRON_TAX_CATEGORIES_FOR_SELECT, :include_blank => t("strikeiron_category_id_blank") %>
+<% end %>

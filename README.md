@@ -37,9 +37,11 @@ end
 if Rails.env.production?
   # This will invoke API
   STRIKEIRON_TAX_CATEGORIES = Strikeiron.tax_categories.freeze
+  ENABLE_STRIKEIRON_API = true # will make live API calls
 else
   # Must be an array
   STRIKEIRON_TAX_CATEGORIES = [{ :category => "Sample Tax Category", :category_id => "1" }]
+  ENABLE_STRIKEIRON_API = false # will use dummy data from ./spec/support/strikeiron_response.yml
 end 
 
 STRIKEIRON_TAX_CATEGORIES_FOR_SELECT = STRIKEIRON_TAX_CATEGORIES.map do |cat|

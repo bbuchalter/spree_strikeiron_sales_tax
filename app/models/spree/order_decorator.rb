@@ -13,10 +13,10 @@ Spree::Order.class_eval do
   end
 
   def strikeiron
-    if Rails.env.production?
+    if ENABLE_STRIKEIRON_API
       @strikeiron_response ||= Strikeiron.sales_tax(:from => FROM_STRIKEIRON_ADDRESS, :to => billing_address.to_strikeiron, :tax_values => strikeiron_line_items ) 
     else
-      @strikeiron_response ||= File.open(File.dirname(__FILE__)+"/../../../spec/support/strikeiron_response.txt") { |f| YAML.load(f) }
+      @strikeiron_response ||= File.open(File.dirname(__FILE__)+"/../../../spec/support/strikeiron_response.yml") { |f| YAML.load(f) }
     end
   end
 

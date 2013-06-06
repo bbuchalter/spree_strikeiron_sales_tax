@@ -1,6 +1,8 @@
 SpreeStrikeironSalesTax
 ===========
 
+Uses the StrikeIron API via the strikeiron gem to calculate, apply and lock tax adjustments to orders. Assumes you will not be using any tax functionality from Spree. See below for sample integration. See spec/support/strikeiron_response.yml for sample response.
+
 This gem was created specifically for use with Spree 1-2-stable. It is almost certainly very close to compatible with other Spree versions. Pull requests welcome!
 
 Thanks to Drew Tempelmeyer for his work on the [strikeiron gem](https://github.com/drewtempelmeyer/strikeiron) on which this gem depends.
@@ -36,7 +38,8 @@ if Rails.env.production?
   # This will invoke API
   STRIKEIRON_TAX_CATEGORIES = Strikeiron.tax_categories.freeze
 else
-  STRIKEIRON_TAX_CATEGORIES = { :category => "Sample Tax Category", :category_id => "1" }          
+  # Must be an array
+  STRIKEIRON_TAX_CATEGORIES = [{ :category => "Sample Tax Category", :category_id => "1" }]
 end 
 
 STRIKEIRON_TAX_CATEGORIES_FOR_SELECT = STRIKEIRON_TAX_CATEGORIES.map do |cat|
@@ -68,7 +71,14 @@ class Spree::Order.class_eval do
 
   def set_taxes!
     clear_taxes!
-    create_strikeiron_tax_adjustments # this method provided by spree_strikeiron_sales_tax gem
+    
+    # Option 1: Creates multiple adjustments with tax amounts for each jurisdiction
+    # create_strikeiron_tax_adjustments_by_jurisdiction
+
+    # OR!
+
+    # Option 2: Creates a single adjustment for total tax
+    # create_strikeiron_total_tax_adjustment
   end
 
   ...

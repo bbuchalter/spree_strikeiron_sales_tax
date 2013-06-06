@@ -20,11 +20,25 @@ Spree::Order.class_eval do
     end
   end
 
+  def strikeiron_total_tax
+    strikeiron.total_tax
+  end
+
   def reset_strikeiron
     @strikeiron_response = nil
   end
 
-  def create_strikeiron_tax_adjustments
+  def create_strikeiron_total_tax_adjustment(label="Sales Tax")
+    adjustments.create({:amount =>      strikeiron_total_tax,
+                        :source =>      self,
+                        :originator =>  self,
+                        :label =>       label,
+                        :mandatory =>   true,
+                        :locked =>      true,
+                        :originator_type => "Spree::TaxRate"}, :without_protection => true)
+  end
+
+  def create_strikeiron_tax_adjustments_by_jurisdiction
     strikeiron_taxes_by_jurisdiction.each do |label, amount|
       adjustments.create({:amount =>      amount,
                           :source =>      self,
